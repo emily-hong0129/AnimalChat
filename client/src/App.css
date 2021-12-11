@@ -1,0 +1,11 @@
+/* init */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
