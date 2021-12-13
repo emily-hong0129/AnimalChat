@@ -15,14 +15,14 @@ const Outer = styled.div`
   display: flex;
   flex-direction: column;
   width: 350px;
-  /* padding: 1rem; */
-  /* border: 1px solid blue; */
   margin: 0 auto;
+  color: black;
+  font-size: 18px;
+  font-weight: normal;
 `
 
 const PictureAndText = styled.div`
   display: flex;
-  /* border: 1px solid orange; */
 `
 // 사진 div
 const PictureSpace = styled.form`
@@ -30,10 +30,7 @@ const PictureSpace = styled.form`
   flex: 1.5;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid red; */
 `
-// 사진
-// TODO axios 요청 이후 - img태그로 바꾸고 배경색, border 빼기
 const RoundPicture = styled.img`
   margin: 1rem auto;
   box-sizing: content-box;
@@ -47,7 +44,7 @@ const NonePicture = styled.div`
   margin: 1rem auto;
   box-sizing: content-box;
   border-radius: 50%;
-  background-color: grey;
+  background-color: #FFFFFF;
   width: 120px;
   height: 120px;
   text-align: center;
@@ -63,14 +60,15 @@ const TextSpace = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  & > h4 {
-    margin: 0;
-    padding: 0;
+  & > div {
+    margin: 5px 0;
   }
 
-  & > p {
+  p {
     margin: 0;
     padding: 0;
+    font-size: 15px;
+    font-weight: bold;
   }
 `
 
@@ -78,6 +76,23 @@ const ButtonSpace = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  button{
+    width: 50px;
+    height: 25px;
+    line-height: 5px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 0;
+  }
+  #add {
+    background-color: #588156;
+    color: #FFFFFF;
+    margin-right: 10px;
+  }
+  #cancle {
+    background-color: #FFFFFF;
+    color: #588156;
+  }
 `
 
 const Button = styled.button`
@@ -97,8 +112,6 @@ const PhotoUpLoadBtn = styled.button`
 `
 
 export default function AddAnimalInfo({infoAnimal , addButtonHandler, cancleButton}) {
-  // console.log('animalInfo : ', infoAnimal.user_id);
-  // console.log('AddAnimalInfo', props.props.userinfo);
   const [animalInfo, setAnimalInfo] = useState({
     userId: infoAnimal.user_id,
     animalName: "",
@@ -158,9 +171,7 @@ export default function AddAnimalInfo({infoAnimal , addButtonHandler, cancleButt
 
     const formData = new FormData()
     formData.append("img", photo)
-    
-    // console.log("photo : ", photo); // 잘나옴
-    console.log("formData : ", formData)  // formData {}
+    // console.log("formData : ", formData)  // formData {}
     
     axios.post(url + "/animalphoto", formData,{
       "Content-Type": "multipart/form-data",
@@ -214,7 +225,7 @@ export default function AddAnimalInfo({infoAnimal , addButtonHandler, cancleButt
           
           <PictureSpace onSubmit={onSubmit}>
             {uploadedImg.filePath === null? (
-              <NonePicture><p>사진이 없습니다</p></NonePicture>
+              <NonePicture><p>사진 없음</p></NonePicture>
             ) : (
               <RoundPicture
                 src={uploadedImg.filePath}
@@ -225,27 +236,22 @@ export default function AddAnimalInfo({infoAnimal , addButtonHandler, cancleButt
           </PictureSpace>
 
           <TextSpace>
-            {/* TODO : 이름과 출생년도 props, 악시오스 요청 */}
             <div>
-              <h4>반려동물 종류</h4>
-              {/* <input type="text" name="type" placeholder="종류" onChange={handleInputValue}/> */}
+              <p>반려동물 종류</p>
               <select onChange={handleSelect} value={Selected}>
                 {selectList.map((item) => (
                   <option value={item} key={item}>
                     {item}
-                    {
-                      // console.log(Selected)
-                    }
                   </option>
                 ))}
               </select>
             </div>
             <div>
-              <h4>반려동물 이름</h4>
-              <input type="text" name="animalName" placeholder="햄찌" onChange={handleInputValue}/>
+              <p>반려동물 이름</p>
+              <input type="text" name="animalName" placeholder="이름" onChange={handleInputValue}/>
             </div>
             <div>
-              <h4>출생년도</h4>
+              <p>출생년도</p>
               <DatePicker
                   selected={startDate}
                   onChange={(date) => {
@@ -261,9 +267,8 @@ export default function AddAnimalInfo({infoAnimal , addButtonHandler, cancleButt
           </TextSpace>
         </PictureAndText>
         <ButtonSpace>
-          {/* TODO : 수정 페이지 Link, 라우팅 */}
-          <Button onClick={addButton}>추가</Button>
-          <Button onClick={closeModal}>취소</Button>
+          <Button onClick={addButton} id="add">추가</Button>
+          <Button onClick={closeModal} id="cancle">취소</Button>
         </ButtonSpace>
       </Outer>
     </div>
