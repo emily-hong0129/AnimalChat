@@ -5,22 +5,25 @@ import axios from "axios"
 import styled from "styled-components"
 
 const Outer = styled.div`
-    height: 100vh;
-    background-color: #feefd5;
+    height: 100%;
+    border: 1px solid red;
 `
 
 const StyledPwdChangeSection = styled.div`
     display: flex;
-    padding: 5rem;
+    padding: 0;
     flex-direction: column;
     align-items: center;
-    background-color: #feefd5;
+    background-color: #FFF9EE;
+    flex:3 1 auto;
 `
 
 const StyledPwdInputsArea = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* flex:1 1 auto; */
+    margin-top: 5rem;
 `
 
 const StyledPwdFieldset = styled.div`
@@ -55,6 +58,7 @@ const SubmitButtonArea = styled.div`
         color: white;
         background-color: #419300;
         margin: 2rem auto;
+        margin-bottom: 10rem; //추가
     }
 `
 
