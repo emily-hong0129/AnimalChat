@@ -7,8 +7,9 @@ import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 
 const Outer = styled.div`
-    background-color: #feefd5;
-    height: 100vh;
+    background-color: #FFF9EE;
+    height: 100%;
+    padding-top: 5%;
 `
 
 const IdDisplay = styled.div`
@@ -16,11 +17,15 @@ const IdDisplay = styled.div`
     padding: 1rem;
     display: flex;
     justify-content: center;
+    #userId {
+        font-size: 20px;
+        font-weight: bold;
+    }
 `
 
 const AnimalsList = styled.div`
     box-sizing: content-box;
-    padding: 1rem;
+    padding: 2rem 1rem;
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, 350px);
@@ -37,21 +42,29 @@ const ButtonsArea = styled.div`
     padding: 1rem;
 
     & > button {
-        font-size: 1rem;
-        background-color: #db7092;
-        color: white;
+        font-size: 1.2rem;
         font-weight: bold;
         box-sizing: content-box;
         margin: 0.5rem;
+        width: 20%;
+        height: 2.5rem;
+        border-radius: 10px;
     }
-`
+    #addAnimal {
+        background-color: #FFFFFF;
+        color: #588156;
+    }
+    #editPw {
+        background-color: #588156;
+        color: #FFFFFF;
+    }
+    `
 
 const QuitButton = styled.button`
-    background-color: transparent;
+    background-color: #FC8E57;
+    color: #FFFFFF;
     border-radius: none;
-    text-decoration: underline;
     border: none;
-    color: #aaaaaa;
 `
 
 const AddAnimalModalContainer = styled.div`
@@ -80,42 +93,22 @@ const AddAnimalModalBackDrop = styled.div`
 const AddAnimalModalView = styled.div`
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     justify-content: space-around;
     border-radius: 20px;
-    background-color: #feefd5;
-    min-width: 400px;
-    // width: 40vw;
-    // height: 60vw;
-    width: 500px;
-
-    height: 600px;
-    color: #bd2020;
+    background-color: #FFF9EE;
+    width: 400px;
+    height: 300px;
     font-size: 1.5rem;
     font-weight: bold;
-
-    // & button.close {
-    //     display: flex;
-    //     justify-content: flex-end;
-    //     margin-top: 1rem;
-    //     padding: 0.5rem 2rem;
-    //     font-size: 2rem;
-    //     text-decoration: underline;
-    //     color: #7b7b7b;
-    //     border: none;
-    //     background-color: transparent;
-    // }
 `
 
 const ButtonSpace1 = styled.div`
     display: flex;
     justify-content: center;
-    // align-items: center;
 `
 const ButtonSpace2 = styled.div`
     display: flex;
     justify-content: space-around;
-    // align-items: center;
 
     & button {
         width: 110px;
@@ -134,14 +127,8 @@ const ButtonSpace2 = styled.div`
     }
 `
 const Button = styled.button`
-    // margin-top: 2rem;
-    // margin-right: 5.5rem;
 `
 
-const Buttos = styled.button`
-    // margin-right: 5rem;
-    // margin-top: 2rem;
-`
 const PhotoBoxAndIdDisplay = styled.form`
     display: flex;
     flex-direction: column;
@@ -149,8 +136,8 @@ const PhotoBoxAndIdDisplay = styled.form`
 `
 
 const PhotoBox = styled.img`
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
 
     border-radius: 50%;
     border: 1px solid silver;
@@ -327,7 +314,7 @@ export default function MyPageSection(props) {
                     </CameraImg>
                 </PhotoBox3>
                 <IdDisplay>
-                    <span>{props.userinfo.user_id}</span>
+                    <span id="userId">아이디 : {props.userinfo.user_id}</span>
                 </IdDisplay>
                 <FormInputTag
                     type="file"
@@ -350,8 +337,8 @@ export default function MyPageSection(props) {
                 )}
             </AnimalsList>
             <ButtonsArea>
-                <button onClick={addAnimal}>동물 추가하기</button>
-                <button onClick={pwdChange}>비밀번호 수정</button>
+                <button onClick={addAnimal} id="addAnimal">동물 추가하기</button>
+                <button onClick={pwdChange} id="editPw">비밀번호 수정</button>
                 <QuitButton onClick={() => deleteUserInfo()}>
                     회원탈퇴
                 </QuitButton>
@@ -404,9 +391,9 @@ export default function MyPageSection(props) {
                                 <Button onClick={() => closeRemoveModal()}>
                                     아니오
                                 </Button>
-                                <Buttos onClick={() => removeInfomation()}>
+                                <Button onClick={() => removeInfomation()}>
                                     예
-                                </Buttos>
+                                </Button>
                             </ButtonSpace2>
                         </AddAnimalModalView>
                     </AddAnimalModalBackDrop>
