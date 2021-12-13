@@ -9,14 +9,19 @@ const Container = styled.div`
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-color: #ffefd5;
+    background-color: #FFF9EE;
 `
 
-const Header = styled.h1`
-    font-size: 7rem;
-    margin: 2.5rem;
+const Header = styled.div`
     text-align: center;
-    color: palevioletred;
+    margin-bottom: 1rem;
+    span {
+        font-weight: bold;
+        font-size: 7rem;
+        margin-right: 1rem;
+        text-align: center;
+        color: palevioletred;
+    }
 `
 
 const SigninBtn = styled.h1`
@@ -65,26 +70,16 @@ export const SignInModalView = styled.div`
     flex-direction: column;
     justify-content: center;
     border-radius: 20px;
-    background-color: #feefd5;
+    background-color: #FFFFFF;
     min-width: 400px;
-    width: 40vw;
-    height: 70vw;
+    width: 450px;
+    height: 550px;
 
-    & h1 {
+    & p {
         font-size: 3rem;
         font-weight: bold;
         color: palevioletred;
-    }
-    & button.close {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 1rem;
-        padding: 0.5rem 2rem;
-        font-size: 1rem;
-        text-decoration: underline;
-        color: #7b7b7b;
-        border: none;
-        background-color: transparent;
+        margin: 10px 0 20px 0;
     }
 `
 
@@ -93,8 +88,16 @@ export const SignInModalForm = styled.div`
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    font-size: 1.33rem;
+    /* font-size: 1.33rem; */
     color: palevioletred;
+    & p{
+        font-weight: bold;
+        color: black;
+        font-size: 1rem;
+    }
+    #inputId {
+        margin-bottom: 10px;
+    }
 `
 
 // input과 input 제목, 비밀번호 경고
@@ -104,11 +107,12 @@ const InputSet = styled.div`
     justify-content: center;
     align-items: center;
 
-    & h4 {
+    & p {
         color: #424242;
+        margin: 0;
     }
     & input {
-        width: 40%;
+        width: 150px;
         padding: 0.33rem;
         margin: 0.5rem;
     }
@@ -119,7 +123,7 @@ const InputSet = styled.div`
     }
 `
 
-// 로그인 버튼 2개
+// login button
 const LoginButtons = styled.div`
     display: flex;
     flex-direction: column;
@@ -131,17 +135,21 @@ const LoginButtons = styled.div`
         margin: 0.5rem;
         padding: 0.5rem;
         width: 30%;
+        height: 18px;
         font-size: 1rem;
+        font-weight: bold;
         border: none;
         color: white;
+        border-radius: 10px;
     }
     & button.justLogin {
-        // 자체로그인색상
-        background-color: #419300;
+        background-color: #588156;
+        border: 2px solid #588156;
     }
-    & button.socialLogin {
-        // 소셜로그인색상
-        background-color: #ea4335;
+    & button.close {
+        background-color: #FFFFFF;
+        border: 1px solid #588156;
+        color: #588156;
     }
 `
 const IconPhoto = styled.img`
@@ -149,6 +157,7 @@ const IconPhoto = styled.img`
 `
 const IconPhoto2 = styled.img`
     width: 50px;
+    margin-left: 5px;
 `
 
 axios.defaults.withCredentials = true
@@ -206,13 +215,13 @@ export const FirstPage = (props) => {
     return (
         <Container>
             <Header>
-                Animal Chat
+                <span id="title">Animal Chat</span>
                 <IconPhoto src="img/image3.png" />
             </Header>
 
             <div>
-                <SigninBtn onClick={openSignInModalHandler}>로그인</SigninBtn>
-                <SigninBtn onClick={signup}>회원가입</SigninBtn>
+                <SigninBtn onClick={openSignInModalHandler}>Login</SigninBtn>
+                <SigninBtn onClick={signup}>Signup</SigninBtn>
             </div>
 
             {isOpen === false ? null : (
@@ -220,25 +229,27 @@ export const FirstPage = (props) => {
                     <SignInModalContainer>
                         <SignInModalBackdrop>
                             <SignInModalView>
-                                <h1>
+                                <p>
                                     Animal Chat
                                     <IconPhoto2 src="img/image3.png" />
-                                </h1>
+                                </p>
 
                                 <SignInModalForm>
-                                    <InputSet className="inputSection">
-                                        <h4>아이디</h4>
+                                    <InputSet className="inputSection" id="inputId">
+                                        {/* <p>ID</p> */}
                                         <input
                                             type="id"
+                                            placeholder="ID"
                                             onChange={handleInputValue("id")}
                                         />
                                     </InputSet>
                                     <InputSet className="inputSection">
-                                        <h4>패스워드</h4>
+                                        {/* <p>PASSWORD</p> */}
                                         <form>
                                             <input
                                                 autoComplete="off"
                                                 type="password"
+                                                placeholder="PASSWORD"
                                                 onChange={handleInputValue(
                                                     "password"
                                                 )}
@@ -255,21 +266,21 @@ export const FirstPage = (props) => {
                                         onClick={(e) => signUpHandler(e)}
                                         className="justLogin"
                                     >
-                                        로그인
+                                        Login
                                     </button>
-                                    <button className="socialLogin">
+                                    {/* <button className="socialLogin">
                                         구글 소셜 로그인
+                                    </button> */}
+                                    <button
+                                        className="close"
+                                        onClick={() => {
+                                            setIsOpen(false)
+                                        }}
+                                    >
+                                        닫기
                                     </button>
                                 </LoginButtons>
 
-                                <button
-                                    className="close"
-                                    onClick={() => {
-                                        setIsOpen(false)
-                                    }}
-                                >
-                                    닫기
-                                </button>
                             </SignInModalView>
                         </SignInModalBackdrop>
                     </SignInModalContainer>
