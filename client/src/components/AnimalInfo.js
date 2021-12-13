@@ -9,7 +9,7 @@ const Outer = styled.div`
     flex-direction: column;
     width: 300px;
     padding: 1rem;
-    background-color: #fff9ee;
+    background-color: #FFFFFF;
     border-radius: 10%;
 `
 
@@ -52,12 +52,13 @@ const TextSpace = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    & > h4 {
+    h4 {
         margin: 0;
-        padding: 0;
+        padding-top: 5px;
+        font-weight: bold;
     }
 
-    & > p {
+    p {
         margin: 0;
         padding: 0;
     }
@@ -69,9 +70,13 @@ const ButtonSpace = styled.div`
     align-items: center;
 
     & > button {
-        background-color: transparent;
-        color: red;
-        text-decoration: underline;
+        background-color: #FC8E57;
+        border-radius: 10px;
+        width: 25px;
+        height: 25px;
+        margin: 5px 0;
+        font-weight: bold;
+        color: #FFFFFF;
     }
 `
 
@@ -138,7 +143,7 @@ export default function AnimalInfo(props) {
                 </PictureAndText>
                 <ButtonSpace>
                     {/* TODO : 수정 페이지 Link, 라우팅 */}
-                    <Button onClick={deleteButtonHandler}>삭제</Button>
+                    <Button onClick={deleteButtonHandler}>X</Button>
                 </ButtonSpace>
             </Outer>
         </div>
