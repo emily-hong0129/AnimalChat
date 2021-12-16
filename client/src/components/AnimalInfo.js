@@ -10,7 +10,16 @@ const Outer = styled.div`
     width: 300px;
     padding: 1rem;
     background-color: #FFFFFF;
-    border-radius: 10%;
+    border-radius: 20px;
+    margin: 0 auto;
+
+    /* 반응형 */
+    @media screen and (max-width: 740px) {
+        padding: 0.5rem;
+    }
+    @media screen and (max-width: 700px) {
+        width: 270px;
+    }
 `
 
 const PictureAndText = styled.div`
@@ -22,6 +31,10 @@ const PictureSpace = styled.div`
     flex: 1.5;
     justify-content: center;
     align-items: center;
+    
+    @media screen and (max-width: 740px) {
+        margin-right: 1rem;
+    }
 `
 
 const RoundPicture = styled.img`
@@ -30,6 +43,9 @@ const RoundPicture = styled.img`
     width: 120px;
     height: 120px;
     margin: 1rem;
+    @media screen and (max-width: 740px) {
+        margin: 0;
+    }
 `
 // 반려동물 사진이 없을때
 const NonePicture = styled.div`
@@ -110,7 +126,7 @@ export default function AnimalInfo(props) {
     }
 
     return (
-        <div className="singleAnimalInfo">
+        // <div className="singleAnimalInfo">
             <Outer>
                 <PictureAndText>
                     <PictureSpace>
@@ -146,6 +162,6 @@ export default function AnimalInfo(props) {
                     <Button onClick={deleteButtonHandler}>X</Button>
                 </ButtonSpace>
             </Outer>
-        </div>
+        // </div>
     )
 }
