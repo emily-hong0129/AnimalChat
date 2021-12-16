@@ -21,16 +21,30 @@ const IdDisplay = styled.div`
         font-size: 20px;
         font-weight: bold;
     }
+    @media screen and (max-width: 375px) {
+        #userId {
+            font-size: 15px;
+        }
+    }
 `
 
 const AnimalsList = styled.div`
     box-sizing: content-box;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 3rem 1rem;
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, 350px);
     justify-content: center;
     align-content: center;
+    @media screen and (max-width: 784px) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: 610px) {
+        grid-template-columns: 1fr;
+    }
+    @media screen and (max-width: 460px) {
+        padding: 1rem;
+    }
 `
 
 const ButtonsArea = styled.div`
@@ -46,7 +60,7 @@ const ButtonsArea = styled.div`
         font-weight: bold;
         box-sizing: content-box;
         margin: 0.5rem;
-        width: 20%;
+        width: 30%;
         height: 2.5rem;
         border-radius: 10px;
     }
@@ -57,6 +71,18 @@ const ButtonsArea = styled.div`
     #editPw {
         background-color: #588156;
         color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 751px) {
+        button{
+            width: 50%;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        button {
+            font-size: 1rem;
+            height: 2rem;
+        }
     }
     `
 
@@ -153,6 +179,14 @@ const PhotoBox = styled.img`
 
     border-radius: 50%;
     border: 1px solid silver;
+    @media screen and (max-width: 660px) {
+        width: 150px;
+        height: 150px;
+    }
+    @media screen and (max-width: 375px) {
+        width: 100px;
+        height: 100px;
+    }
 `
 const PhotoBox2 = styled.div`
     display: flex;
@@ -180,6 +214,14 @@ const CameraImg2 = styled.img`
     background-color: white;
     border-radius: 100%;
     border: 1px solid silver;
+    @media screen and (max-width: 660px) {
+        width: 40px;
+        margin-left: 40px;
+    }
+    @media screen and (max-width: 375px) {
+        width: 30px;
+        margin-left: 30px;
+    }
 `
 
 const FormInputTag = styled.input`
