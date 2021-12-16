@@ -16,17 +16,26 @@ const CommentContainer = styled.li`
     align-items: center;
 
     & .comment__left {
-        flex-grow: 7;
+        margin-right: 1rem;
     }
     & .comment__userId {
         font-weight: bold;
+        font-size: 1.2rem;
+    }
+    & .comment__content {
+        margin: 0.5rem 0;
     }
     & .comment__createdAt {
-        margin: auto 1rem;
+        margin-top: 1rem;
+        margin-right: 2rem;
     }
     & button {
-        padding: 0.5rem;
-        background-color: #ffc257;
+        padding: 0.3rem 0.5rem;
+        background-color: #FC8E57;
+        border-radius: 10px;
+    }
+
+    @media screen and (max-width: 651px) {
     }
 `
 
@@ -75,17 +84,10 @@ const Comment = ({ content, deleteComment, userinfo }) => {
         <CommentContainer className="comment">
             <div className="comment__left">
                 <p className="comment__userId">{content.comment_user_id}</p>
-                <Like
-                    like={like}
-                    onClick={likeHandler}
-                    src={like ? liked : likes}
-                ></Like>
-                <div className="comment__content">
-                    {content.comment_content}
-                </div>
-            </div>
 
-            <div className="comment__right">
+                <div className="comment__content">
+                    <span>{content.comment_content}</span>
+                </div>
                 <span className="comment__createdAt">{content.createdAt}</span>
                 <button
                     className="comment__removeBtn"
@@ -94,8 +96,17 @@ const Comment = ({ content, deleteComment, userinfo }) => {
                     삭제
                 </button>
             </div>
+
+            <div className="comment__right">
+                {/* <span className="comment__createdAt">{content.createdAt}</span> */}
+                <Like
+                    like={like}
+                    onClick={likeHandler}
+                    src={like ? liked : likes}
+                ></Like>
+            </div>
         </CommentContainer>
     )
 }
 
-export default Comment
+export default Comment;
