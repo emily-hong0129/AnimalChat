@@ -6,13 +6,13 @@ import styled from "styled-components"
 import Comment from "./8.postRead-comment"
 
 const Outer = styled.div`
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 `
 
 const Contents = styled.div`
-    width: 100vw;
-    background-color: #feefd5;
+    width: 100%;
+    background-color: #FFF9EE;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,88 +23,129 @@ const PostReadSection = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; //추가
-    margin-top: 0.5rem;
+    margin-top: 2rem;
+    width: 80%;
 
     & > div {
-        margin: 5rem;
+        margin: 1rem;
     }
 
     & .postPic {
-        width: 50vw;
-        height: 50vw;
+        width: 60%;
+        height: 60%;
     }
 
     & .postContent {
         font-size: 1.2rem;
         padding: 1rem;
         width: 90%;
-        margin: 3rem;
     }
 `
 
 const PostTitle = styled.div`
-    display: flex;
-    width: calc(100% - 2rem);
-
+    width: 100%;
     & h1 {
         margin: auto 1rem;
     }
+
+    @media screen and (max-width: 930px) {
+        display: block;
+        & h1 {
+            font-size: 1.5rem;
+        }
+    }
 `
-
+// 제목
 const PostTitleLeft = styled.div`
-    display: flex;
-    flex-grow: 8;
     align-items: center;
-
-    & img {
-        border: 1px solid black;
-        width: 3rem;
-        height: 3rem;
+    padding-bottom: 1rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid #588156;
+    
+    @media screen and (max-width: 930px) {
+        justify-content: space-between;
+        display: inline-block;
+        width: 100%;
+        .title {
+            display: inline;
+            margin: 0;
+        }
     }
 `
 
-const PostButtons = styled.div`
-    padding: 0;
+// 날짜, 수정,삭제버튼
+const PostRight = styled.div`
     display: flex;
-    flex-grow: 2;
-    align-items: center;
+    justify-content: space-between;
+`
+// 날짜
+const Date = styled.div`
+    line-height: 50px;
+    vertical-align: middle;
+    @media screen and (max-width: 651px) {
+        font-size: 0.8rem;
+    }
 
+`
+// 삭제,수정
+const Buttons = styled.div`
     & button {
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        font-size: 1rem;
-        padding: 0.5rem;
+        font-size: 1.1rem;
+        font-weight:bold;
+        padding: 0.5rem 2rem;
         margin: 0.5rem;
         color: white;
+        border-radius: 10px;
     }
+
     & .editPost {
-        flex-grow: 2;
-        background-color: #4876bf;
-        color: white;
+        background-color:white; 
+        color: #588156;
+        &:hover{
+            background-color: #FFBC57;
+            color:white;
+        }
     }
+
     & .deletePost {
-        flex-grow: 1;
-        background-color: #e00000;
+        background-color: #588156;
+        color:white;
+        &:hover{
+            background-color:#E55432; 
+            color: #006300;
+        }
+    }
+    @media screen and (max-width: 651px) {
+        button {
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+        }
     }
 `
 
 const CommentSection = styled.div`
-    width: inherit;
+    width: 80%;
     padding: 1rem;
-
     & li {
         padding: 1rem;
         margin: 0.5rem;
     }
 `
 
+// 댓글달기
 const PostComment = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #588156;
+
+    span {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-right: 1rem;
+    }
 
     & .commentUsername {
         display: flex;
@@ -126,8 +167,27 @@ const PostComment = styled.div`
     }
 
     & button {
-        background-color: #419300;
-        padding: 0.5rem;
+        background-color: #588156;
+        width: 95px;
+        height: 40px;
+        padding: 0;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #FFFFFF;
+        &:hover{
+            background-color: #FFBC57;
+            color: #FFFFFF;
+        }
+        @media screen and (max-width: 651px) {
+            width: 5rem;
+            height: 3rem;
+            font-size: 0.8rem;
+        }
+        @media screen and (max-width: 450px) {
+            /* width: 4rem; */
+            height: 2.5rem;
+        }
     }
 `
 
@@ -135,7 +195,6 @@ const CommentList = styled.ul`
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
-    width: inherit;
 `
 
 const BackButton = styled.button`
@@ -146,10 +205,17 @@ const BackButton = styled.button`
     font-size: 1rem;
     margin: 1rem;
     padding: 0.8rem;
+
+    @media screen and (max-width: 800px) {
+        margin: 0;
+        padding: 0;
+    }
 `
 
 const PhotoBoxZone = styled.img`
-    max-width: 100%;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 `
 
 const url =
@@ -159,7 +225,7 @@ const url =
 export default function PostRead(props) {
     const history = useHistory()
 
-    function editPostButton(event) {
+    function editPostButton() {
         axios({
             url: url + "/editpost",
             method: "post",
@@ -242,7 +308,7 @@ export default function PostRead(props) {
         }).then((res) => setContentList(res.data))
     }
 
-    // 댓글 삭제 (해당 유저 아이디만, )
+    // 댓글 삭제
     const deleteComment = (commentId) => {
         if (window.confirm("댓글을 삭제하시겠습니까?")) {
             axios({
@@ -265,6 +331,8 @@ export default function PostRead(props) {
     const handleChangeMsg = (event) => {
         setContentMsg(event.target.value)
     }
+
+    //랜덤이미지 
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min)
         max = Math.floor(max)
@@ -280,43 +348,34 @@ export default function PostRead(props) {
                             <h1 className="title">
                                 {props.curPost.post_title}
                             </h1>
-                            <p>{props.curPost.updatedAt}</p>
                         </PostTitleLeft>
 
-                        <PostButtons className="postTitle_right">
-                            <button
-                                className="editPost"
-                                onClick={editPostButton}
-                            >
-                                수정
-                            </button>
-                            <button
-                                className="deletePost"
-                                onClick={deletePostButton}
-                            >
-                                삭제
-                            </button>
-                        </PostButtons>
+                        <PostRight className="postTitle_right">
+                            <Date><p>{props.curPost.updatedAt}</p></Date>
+                            <Buttons>
+                                <button
+                                    className="editPost"
+                                    onClick={editPostButton}
+                                >
+                                    수정
+                                </button>
+                                <button
+                                    className="deletePost"
+                                    onClick={deletePostButton}
+                                >
+                                    삭제
+                                </button>
+                            </Buttons>
+                        </PostRight>
                     </PostTitle>
 
-                    {/* 게시물 사진 */}
+                     {/* 게시물 사진 */}
                     <div className="postPic">
-                        {props.curPost.post_img.includes("png") ? (
-                            <PhotoBoxZone
-                                className="picture"
-                                src={url + props.curPost.post_img}
-                                alt="게시물 사진1"
-                            />
-                        ) : (
-                            <PhotoBoxZone
-                                className="picture"
-                                src={`http://placeimg.com/640/${getRandomIntInclusive(
-                                    480,
-                                    640
-                                )}/animals`}
-                                alt="게시물 사진2"
-                            />
-                        )}
+                        <PhotoBoxZone
+                            className="picture"
+                            src={url + props.curPost.post_img}
+                            alt="게시물 사진"
+                        />
                     </div>
 
                     {/* 게시물 내용 */}
@@ -336,7 +395,7 @@ export default function PostRead(props) {
                 {/* 댓글 작성 */}
                 <CommentSection>
                     <PostComment className="postComment">
-                        <div>{props.userinfo.user_id} 댓글달기:</div>
+                        <div><span>{props.userinfo.user_id}</span></div>
                         <input
                             className="inputComment"
                             type="text"
