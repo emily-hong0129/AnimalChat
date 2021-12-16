@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 // styled components
 const Outer = styled.div`
-    width: 100vw;
+    width: 100%;
     background-color: white;
 `
 
@@ -35,23 +35,27 @@ const ButtonsArea = styled.div`
     }
     
     /* 반응형 */
-    @media screen and (max-width: 650px) {
+    @media screen and (max-width: 660px) {
         padding: 0.5rem;
         margin: auto 0.2rem;
         button {
-            font-size: 0.5rem;
+            font-size: 0.9rem;
         }
         
     }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 575px) {
         padding-left: 0;
         padding-right: 0;
         button {
             padding: 0.5rem;
         }
     }
-    @media screen and (max-width: 369px) {
-        padding-bottom: 0;
+    @media screen and (max-width: 460px) {
+        button {
+            font-size: 0.5rem
+        }
+    }
+    @media screen and (max-width: 366px) {
         button {
             margin-bottom: 0.3rem;
         }
