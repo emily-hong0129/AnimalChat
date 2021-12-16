@@ -11,15 +11,14 @@ const Body = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #feefd5;
+    background-color: #fff9ee;
     width: 100vw;
     height: 100vh;
 `
 
 // 사진 업로드, 글 수정 전체
 const ContentBox = styled.div`
-    background-color: #fff9ee;
-
+    background-color:#fff9ee;
     padding: 2rem;
     width: 80vw;
     height: inherit;
@@ -50,7 +49,7 @@ const PhotoBoxZone = styled.img`
 
 const PhotoUploadWarning = styled.div`
     margin-top: 200px;
-    background-color: #ececec;
+    /* background-color: #ececec; */
     font-size: 30px;
     text-align: center;
     color: #e00000;
@@ -60,7 +59,7 @@ const PhotoUploadButtons = styled.div`
     padding: 1rem;
     display: flex;
     justify-content: space-around;
-    background-color: #ffb83e;
+    /* background-color: #ffb83e; */
     margin-top: 5rem;
 `
 
@@ -68,17 +67,24 @@ const PhotoSelectBtn = styled.input`
     text-align: center;
     font-size: 20px;
     width: 200px;
-    background-color: #ffb83e;
+    /* background-color: #ffb83e; */
     color: black;
+    margin: 0.3rem;
 `
 
 const PhotoUpLoadBtn = styled.button`
+    border-radius:3rem;
     font-size: 20px;
     padding: 0.5rem;
     color: white;
     text-align: center;
-    width: 200px;
-    background-color: #419300;
+    width: 100px;
+    background-color: #9FD9F4;
+    font-weight: bold;
+    font-size: 1.3rem;
+    &:hover{
+        background-color:#95E4FE;
+    }
 `
 
 // 타이틀, 글 작성 버튼 2개 포함
@@ -89,7 +95,7 @@ const TitlePostDiv = styled.div`
     justify-content: center;
     align-items: center;
     width: 40vw;
-    height: 35vh;
+    height: 45vh;
 `
 
 const TitleBox = styled.input`
@@ -110,8 +116,9 @@ const PostBox = styled.textarea`
     height: 400px;
     background-color: #ececec;
     font-size: 30px;
-    color: #424242;
+    color: palevioletred;
     padding: 0.5rem;
+    text-align: center;
 `
 
 const TitlePostButtons = styled.div`
@@ -125,16 +132,33 @@ const TitlePostButtons = styled.div`
 
 const PostCompletionBtnMargin = styled.button`
     text-align: center;
-    background-color: #419300;
-    color: white;
-    padding: 0.5rem 10rem;
+    background-color: white;
+    color: #588156;
+    padding: 1rem 3rem;
+    margin: 0.2rem;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 2rem;
+    &:hover{
+        background-color:#FFBC57;
+        color: white;
+    }
 `
 
 const PostCancelBtnMargin = styled.button`
     text-align: center;
-    background-color: #e00000;
+    background-color: #588156;
     color: white;
-    padding: 2rem;
+    padding: 1rem 3rem;
+    margin: 0.2rem; 
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 2rem;
+    &:hover{
+        /* background-color:#FF9075; */
+        background-color:#FF9075;
+        color: #588156;
+    }
 `
 
 const url =
@@ -251,6 +275,7 @@ export const Post = (props) => {
                             </PhotoUploadWarning>
                         )}
                     </PhotoBox>
+                    
                     <PhotoUploadButtons className="photoSelectButtons">
                         <PhotoSelectBtn
                             type="file"
@@ -266,13 +291,13 @@ export const Post = (props) => {
               
                 <TitlePostDiv>
                     <TitleBox
-                        placeholder="제목을 적으세요."
+                        placeholder="제목"
                         type="text"
                         name="title"
                         onChange={handleInputValue}
                     />
                     <PostBox
-                        placeholder="글을 적으세요."
+                        placeholder="글 내용"
                         type="text"
                         name="content"
                         onChange={handleInputValue}
