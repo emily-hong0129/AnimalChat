@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useEffect } from "react"
+
 import styled from "styled-components"
 import { useHistory } from "react-router-dom"
 
@@ -9,7 +9,7 @@ const Outer = styled.div`
     flex-direction: column;
     width: 300px;
     padding: 1rem;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 20px;
     margin: 0 auto;
 
@@ -31,7 +31,7 @@ const PictureSpace = styled.div`
     flex: 1.5;
     justify-content: center;
     align-items: center;
-    
+
     @media screen and (max-width: 740px) {
         margin-right: 1rem;
     }
@@ -86,13 +86,13 @@ const ButtonSpace = styled.div`
     align-items: center;
 
     & > button {
-        background-color: #FC8E57;
+        background-color: #fc8e57;
         border-radius: 10px;
         width: 25px;
         height: 25px;
         margin: 5px 0;
         font-weight: bold;
-        color: #FFFFFF;
+        color: #ffffff;
     }
 `
 
@@ -105,10 +105,8 @@ const url =
 
 export default function AnimalInfo(props) {
     const history = useHistory()
-    // console.log("AnimalInfo.js : ", props)
 
     const deleteButtonHandler = () => {
-        // console.log("동물정보 삭제 버튼 동작 확인")
         axios({
             url: url + `/deleteanimal`,
             method: "delete",
@@ -118,50 +116,47 @@ export default function AnimalInfo(props) {
             },
             withCredentials: true,
         }).then((res) => {
-            console.log(res)
             history.push("/")
             history.push("/mypage")
-            // setUserAnimalInfo(res.data)
         })
     }
 
     return (
-        // <div className="singleAnimalInfo">
-            <Outer>
-                <PictureAndText>
-                    <PictureSpace>
-                        {props.animalcard.animal_photo === null ? (
-                            <NonePicture>
-                                <p>사진이 없습니다.</p>
-                            </NonePicture>
-                        ) : (
-                            <RoundPicture
-                                src={url + props.animalcard.animal_photo}
-                                alt="반려동물사진"
-                            />
-                        )}
-                    </PictureSpace>
-                    <TextSpace>
-                        {/* TODO : 이름과 출생년도 props, 악시오스 요청 */}
-                        <div>
-                            <h4>반려동물 종류</h4>
-                            <p>{props.animalcard.animaltype}</p>
-                        </div>
-                        <div>
-                            <h4>반려동물 이름</h4>
-                            <p>{props.animalcard.animalname}</p>
-                        </div>
-                        <div>
-                            <h4>출생년도</h4>
-                            <p>{props.animalcard.animalyob}</p>
-                        </div>
-                    </TextSpace>
-                </PictureAndText>
-                <ButtonSpace>
-                    {/* TODO : 수정 페이지 Link, 라우팅 */}
-                    <Button onClick={deleteButtonHandler}>X</Button>
-                </ButtonSpace>
-            </Outer>
+        <Outer>
+            <PictureAndText>
+                <PictureSpace>
+                    {props.animalcard.animal_photo === null ? (
+                        <NonePicture>
+                            <p>사진이 없습니다.</p>
+                        </NonePicture>
+                    ) : (
+                        <RoundPicture
+                            src={url + props.animalcard.animal_photo}
+                            alt="반려동물사진"
+                        />
+                    )}
+                </PictureSpace>
+                <TextSpace>
+                    {/* TODO : 이름과 출생년도 props, 악시오스 요청 */}
+                    <div>
+                        <h4>반려동물 종류</h4>
+                        <p>{props.animalcard.animaltype}</p>
+                    </div>
+                    <div>
+                        <h4>반려동물 이름</h4>
+                        <p>{props.animalcard.animalname}</p>
+                    </div>
+                    <div>
+                        <h4>출생년도</h4>
+                        <p>{props.animalcard.animalyob}</p>
+                    </div>
+                </TextSpace>
+            </PictureAndText>
+            <ButtonSpace>
+                {/* TODO : 수정 페이지 Link, 라우팅 */}
+                <Button onClick={deleteButtonHandler}>X</Button>
+            </ButtonSpace>
+        </Outer>
         // </div>
     )
 }

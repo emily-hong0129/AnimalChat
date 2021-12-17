@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import axios from "axios"
 import { Link } from "react-router-dom" // useHistory
 import styled from "styled-components"
@@ -76,30 +76,23 @@ const url =
     "http://ec2-54-180-102-202.ap-northeast-2.compute.amazonaws.com"
 
 export default function Header(props) {
-    // const [isLogin, setIsLogin] = useState(false)
-    // const [userinfo, setUserinfo] = useState(null)
 
-    // button event
     function logoutEventListener() {
-        // console.log('send logout request here')
         axios({
             url: url + "/signout",
             method: "post",
             withCredentials: true,
+        }).then((res) => {
+            localStorage.removeItem("accessToken")
+            props.setUserinfo(null)
+            props.setIsLogin(false)
         })
-            //확인필요
-            .then((res) => {
-                localStorage.removeItem("accessToken")
-                props.setUserinfo(null)
-                props.setIsLogin(false)
-            })
     }
 
     return (
         <Outer className="headerComponent">
             <HeaderFlexDiv>
                 <TopButtonsArea className="topButtonsArea">
-                    {/* 링크 연결 : 마이페이지-라우팅, 로그아웃-클릭 이벤트, 랜딩페이지 라우팅*/}
                     <Link to="/mypage">
                         <button className="headerTopButtons">My</button>
                     </Link>
