@@ -3,7 +3,6 @@ const { isAuthorized } = require("../tokenFunc")
 
 module.exports = async (req, res) => {
     const accessTokenData = isAuthorized(req)
-    console.log(accessTokenData)
 
     if (!accessTokenData) {
         return res.json({ data: null, message: "not authorized" })
