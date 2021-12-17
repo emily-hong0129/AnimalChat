@@ -7,7 +7,8 @@ import Comment from "./8.postRead-comment"
 
 const Outer = styled.div`
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    background-color: #FFF9EE;
 `
 
 const Contents = styled.div`

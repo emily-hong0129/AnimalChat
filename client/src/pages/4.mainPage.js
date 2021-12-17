@@ -5,11 +5,13 @@ import Header from "../components/Header"
 import Navigation from "../components/Navigation"
 import { useEffect } from "react"
 import Posts from "../components/Posts"
+import Footer from "../components/Footer"
 import React from "react"
 
 const Outer = styled.div`
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    /* height: 100vh; */
+    background-color: #FFF9EE;
 `
 const url =
     process.env.REACT_APP_URL ||
@@ -43,6 +45,7 @@ export default function MainPage(props) {
                 curAnimal={props.curAnimal}
                 curPostRead={props.curPostRead}
             />
+            <Footer></Footer>
         </Outer>
     )
 }

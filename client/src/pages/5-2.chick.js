@@ -4,6 +4,7 @@ import Header from "../components/Header"
 import Navigation from "../components/Navigation"
 import React, { useEffect } from "react"
 import axios from "axios"
+import Footer from "../components/Footer"
 const url =
     process.env.REACT_APP_URL ||
     "http://ec2-54-180-102-202.ap-northeast-2.compute.amazonaws.com"
@@ -32,6 +33,7 @@ export default function Chick(props) {
                 curAnimal={props.curAnimal}
                 curPostRead={props.curPostRead}
             />
+            <Footer></Footer>
         </div>
     )
 }

@@ -3,6 +3,7 @@ import Navigation from "../components/Navigation"
 import MyPageSection from "./9.myPageSection"
 import React from "react"
 import axios from "axios"
+import Footer from "../components/Footer"
 
 const url =
     process.env.REACT_APP_URL ||
@@ -24,6 +25,7 @@ export default function MyPage({
             <Header setUserinfo={setUserinfo} setIsLogin={setIsLogin} />
             <Navigation />
             <MyPageSection userinfo={userinfo} newUserInfo={newUserInfo} />
+            <Footer></Footer>
         </div>
     )
 }

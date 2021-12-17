@@ -7,7 +7,7 @@ import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 
 const Outer = styled.div`
-    background-color: #FFF9EE;
+    background-color: #fff9ee;
     height: 100%;
     padding: 5% 0;
 `
@@ -65,16 +65,16 @@ const ButtonsArea = styled.div`
         border-radius: 10px;
     }
     #addAnimal {
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         color: #588156;
     }
     #editPw {
         background-color: #588156;
-        color: #FFFFFF;
+        color: #ffffff;
     }
 
     @media screen and (max-width: 751px) {
-        button{
+        button {
             width: 50%;
         }
     }
@@ -84,11 +84,11 @@ const ButtonsArea = styled.div`
             height: 2rem;
         }
     }
-    `
+`
 
 const QuitButton = styled.button`
-    background-color: #FC8E57;
-    color: #FFFFFF;
+    background-color: #fc8e57;
+    color: #ffffff;
     border-radius: none;
     border: none;
 `
@@ -121,11 +121,18 @@ const AddAnimalModalView = styled.div`
     flex-direction: column;
     justify-content: space-around;
     border-radius: 20px;
-    background-color: #FFF9EE;
+    background-color: #fff9ee;
     width: 400px;
     height: 300px;
     font-size: 1.5rem;
     font-weight: bold;
+
+    @media screen and (max-width: 450px) {
+        width: 370px;
+    }
+    @media screen and (max-width: 376px) {
+        width: 355px;
+    }
 `
 
 const DeleteAccount = styled.div`
@@ -133,11 +140,18 @@ const DeleteAccount = styled.div`
     flex-direction: column;
     justify-content: space-around;
     border-radius: 20px;
-    background-color: #FFF9EE;
+    background-color: #fff9ee;
     width: 400px;
     height: 550px;
     font-size: 1.5rem;
     font-weight: bold;
+
+    @media screen and (max-width: 450px) {
+        width: 370px;
+    }
+    @media screen and (max-width: 376px) {
+        width: 350px;
+    }
 `
 
 const ButtonSpace1 = styled.div`
@@ -149,22 +163,35 @@ const ButtonSpace2 = styled.div`
     justify-content: space-around;
 
     & button {
-        width: 110px;
-        border: none;
-        border-radius: 2rem;
-        margin: auto 0.5rem;
-        padding: 0.5rem 1rem;
-        background-color: #ffb83e;
-        color: red;
-        font-size: 1.2rem;
-
         &:hover {
-            color: black;
-            background-color: red;
+            // color: black;
+            // background-color: red;
+            background-color: #ffffff;
+            color: #588156;
         }
     }
 `
-const Button = styled.button`
+const Button3 = styled.button`
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-sizing: content-box;
+    margin: 0.5rem;
+    width: 20%;
+    height: 2.5rem;
+    border-radius: 10px;
+    background-color: #588156;
+    color: #ffffff;
+`
+const Button4 = styled.button`
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-sizing: content-box;
+    margin: 0.5rem;
+    width: 20%;
+    height: 2.5rem;
+    border-radius: 10px;
+    background-color: #fc8e57;
+    color: #ffffff;
 `
 
 const PhotoBoxAndIdDisplay = styled.form`
@@ -391,8 +418,12 @@ export default function MyPageSection(props) {
                 )}
             </AnimalsList>
             <ButtonsArea>
-                <button onClick={addAnimal} id="addAnimal">동물 추가하기</button>
-                <button onClick={pwdChange} id="editPw">비밀번호 수정</button>
+                <button onClick={addAnimal} id="addAnimal">
+                    동물 추가하기
+                </button>
+                <button onClick={pwdChange} id="editPw">
+                    비밀번호 수정
+                </button>
                 <QuitButton onClick={() => deleteUserInfo()}>
                     회원탈퇴
                 </QuitButton>
@@ -442,12 +473,12 @@ export default function MyPageSection(props) {
                                 </DivTag3>
                             </DivTag1>
                             <ButtonSpace2>
-                                <Button onClick={() => closeRemoveModal()}>
+                                <Button3 onClick={() => closeRemoveModal()}>
                                     아니오
-                                </Button>
-                                <Button onClick={() => removeInfomation()}>
+                                </Button3>
+                                <Button4 onClick={() => removeInfomation()}>
                                     예
-                                </Button>
+                                </Button4>
                             </ButtonSpace2>
                         </DeleteAccount>
                     </AddAnimalModalBackDrop>
