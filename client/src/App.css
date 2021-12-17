@@ -1,11 +1,12 @@
 /* init */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-family: "IBM Plex Sans KR", sans-serif;
 }
 
 button {
-  cursor: pointer;
-  border: none;
+    cursor: pointer;
+    border: none;
 }

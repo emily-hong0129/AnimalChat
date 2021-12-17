@@ -14,6 +14,7 @@ import Post from "./pages/6.post"
 import PostEdit from "./pages/7.postEdit"
 import PostRead from "./pages/8.postRead"
 import MyPage from "./pages/9.myPage"
+import GlobalStyle from "./components/GlobalStyle"
 import PwdEditPage from "./pages/11-1.pwdEdit"
 
 import "./App.css"
@@ -91,6 +92,7 @@ function App() {
 
     return (
         <>
+            <GlobalStyle />
             <div className="entire">
                 <Switch>
                     <Route exact path="/firstpage">
