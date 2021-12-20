@@ -196,7 +196,7 @@ export default function AddAnimalInfo({
         if (Selected && animalName && animalYob) {
             axios({
                 url: url + "/edituserinfo",
-                method: "post",
+                method: "patch",
                 data: {
                     animalInfo: animalInfo,
                     animal_photo: "/img/" + uploadedImg.fileName,
