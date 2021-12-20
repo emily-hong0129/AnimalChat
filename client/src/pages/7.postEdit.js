@@ -284,7 +284,7 @@ export const PostEdit = (props) => {
         ) {
             axios({
                 url: url + "/editpost",
-                method: "post",
+                method: "patch",
                 data: {
                     user_id: props.userinfo.user_id,
                     post_id: props.curPost.id,
@@ -310,7 +310,7 @@ export const PostEdit = (props) => {
         ) {
             axios({
                 url: url + "/editpost",
-                method: "post",
+                method: "patch",
                 data: {
                     user_id: props.userinfo.user_id,
                     post_id: props.curPost.id,

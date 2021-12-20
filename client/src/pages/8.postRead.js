@@ -229,7 +229,7 @@ export default function PostRead(props) {
     function editPostButton() {
         axios({
             url: url + "/editpost",
-            method: "post",
+            method: "patch",
             data: {
                 post_id: props.curPost.id, //클릭한 포스트 id
                 user_id: props.userinfo.user_id, //현재접속한 유저정보

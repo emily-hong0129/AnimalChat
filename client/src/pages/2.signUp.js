@@ -19,13 +19,14 @@ const Outer = styled.div`
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: #feefd5;
+    background-color: #fff9ee;
 `
 
 const FormSpace = styled.div`
     min-width: 300px;
     width: 50vw;
-    background-color: #fff9ee;
+    background-color: #FFFFFF;
+    border-radius: 20px;
 `
 
 const PageTitle = styled.h1`
@@ -76,23 +77,42 @@ const ButtonsArea = styled.div`
     margin: 1rem;
     padding: 1rem;
     display: flex;
-    justify-content: space-around;
     align-items: center;
 
     & button {
         padding: 0.5rem;
-        border-radius: none;
+        border-radius: 10px;
         border: none;
         background-color: #e00000;
         color: white;
         font-size: 1.1rem;
+        font-weight: bold;
     }
 
-    & button[type="submit"] {
-        border: none;
+    .buttons {
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
         width: 40%;
-        background-color: #419300;
-        color: white;
+        @media screen and (max-width: 450px) {
+            width: auto;
+        }
+    }
+
+    #submitBtn {
+        background-color: #588156;
+        border: 1px solid #588156;
+        color: #FFFFFF;
+        margin-right: 1rem;
+        width: 50%;
+        @media screen and (max-width: 450px) {
+            width: auto;
+        }
+    }
+    #cancleBtn {
+        background-color: #FFFFFF;
+        border: 1px solid #588156;
+        color: #588156;
     }
 `
 
@@ -326,10 +346,12 @@ export default function Signup(props) {
                     </InputsSection>
 
                     <ButtonsArea>
-                        <button type="submit" onClick={handleSubmit}>
-                            회원가입
-                        </button>
-                        <button onClick={() => history.goBack()}>취소</button>
+                        <div className="buttons">
+                            <button id="submitBtn" type="submit" onClick={handleSubmit}>
+                                회원가입
+                            </button>
+                            <button id="cancleBtn" onClick={() => history.goBack()}>취소</button>
+                        </div>
                     </ButtonsArea>
                 </StyledForm>
             </FormSpace>

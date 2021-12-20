@@ -198,7 +198,7 @@ export default function PasswordChange() {
 
             axios({
                 url: url + "/editpw",
-                method: "post",
+                method: "put",
                 data: { password: newPwd },
                 headers: {
                     "Content-Type": "application/json",
