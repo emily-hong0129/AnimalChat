@@ -1,24 +1,26 @@
 module.exports = {
-
   auth: require("./users/auth"),
-  commentlist: require("./users/commentlist"),
-  sendcomment: require("./users/sendcomment"),
-  editpost: require("./users/editpost"),
   postlist: require("./users/postlist"),
-  sendpost: require("./users/sendpost"),
-  profilephoto: require("./users/profilephoto"),
-  editpw: require("./users/editpw"),
+  userinfo: require("./users/userinfo"),
+
+  sendcomment: require("./users/sendcomment"),
+  like: require("./users/like"),
+  commentlist: require("./users/commentlist"),
   signin: require("./users/signin"),
+  checkpw:require("./users/checkpw"),
   signout: require("./users/signout"),
   signup: require("./users/signup"),
-  userinfo: require("./users/userinfo"),
-  edituserinfo: require("./users/edituserinfo"),
-  like: require("./users/like"),
   readlike: require("./users/readlike"),
+  sendpost: require("./users/sendpost"),
+  profilephoto: require("./users/profilephoto"),
   animalphoto: require("./users/animalphoto"),
+  
+  editpw: require("./users/editpw"),
+  editpost: require("./users/editpost"),
+  edituserinfo: require("./users/edituserinfo"),
+  
   deletecomment: require("./del/deletecomment"),
   deletepost: require("./del/deletepost"),
-  deleteanimal: require("./del/deleteanimal"),
   removeuser: require("./del/removeuser"),
-  
+  deleteanimal: require("./del/deleteanimal"),
 }
