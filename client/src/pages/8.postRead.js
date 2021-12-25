@@ -324,6 +324,7 @@ export default function PostRead(props) {
                 // 추후 수정 필요 12/06
                 history.push("/mainpage")
                 history.goBack()
+                console.log(res);
             })
         }
     }
