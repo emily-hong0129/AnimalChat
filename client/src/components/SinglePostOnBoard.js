@@ -4,7 +4,7 @@ import React from "react"
 
 const url =
     process.env.REACT_APP_URL ||
-    "http://ec2-54-180-102-202.ap-northeast-2.compute.amazonaws.com"
+    "http://ec2-54-180-202-229.ap-northeast-2.compute.amazonaws.com"
 
 const StyledSinglePost = styled.div`
     display: grid;
