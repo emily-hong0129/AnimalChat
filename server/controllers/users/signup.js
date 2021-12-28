@@ -1,7 +1,8 @@
 const { user } = require("../../models")
 const { animal } = require("../../models")
 const { generateAccessToken, generateRefreshToken } = require("../tokenFunc")
-const { encrypto } = require("../users/setpw")
+//const { encrypto } = require("../users/setpw")
+const bcrypt = require('bcrypt')
 
 module.exports = async (req, res) => {
     const { userId, password, nickName, animalName, selectType, animalYob } =
@@ -44,12 +45,13 @@ module.exports = async (req, res) => {
         }
         //id도 중복아니고, 닉네임도 중복이 아닌경우 생성해준다.
         else {
-            const enpw = encrypto(password)
-
+            //const enpw = encrypto(password)
+            const hash = await bcrypt.hash(password, 13)
             //users테이블에 가입정보 추가
             await user.create({
                 user_id: userId,
-                password: enpw,
+                //password: enpw,
+                password:hash,
                 nickname: nickName,
                 profilePhoto: "chick.png",
             })

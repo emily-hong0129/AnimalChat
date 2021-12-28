@@ -11,8 +11,8 @@ module.exports = {
             return '';
         }
         const cipher = crypto.createCipheriv(algorithm, key, iv);
-        const enresult = cipher.update(data, "utf8", "base64");
-        const results = enresult + cipher.final("base64");
+        const enresult = cipher.update(data, "utf8", "hex");
+        const results = enresult + cipher.final("hex");
         return results;
     },
     decrypto: (data) => {
@@ -20,7 +20,7 @@ module.exports = {
             return '';
         }
         const decipher = crypto.createDecipheriv(algorithm, key, iv);
-        const deresult = decipher.update(data, "base64", "utf8");
+        const deresult = decipher.update(data, "hex", "utf8");
         const output = deresult + decipher.final("utf8");
         return output;
     }
