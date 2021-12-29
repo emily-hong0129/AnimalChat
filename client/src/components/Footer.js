@@ -3,35 +3,22 @@ import React from "react"
 import styled from "styled-components"
 
 const Outer = styled.div`
-    /* margin: 1.5rem; */
     margin: 0 auto;
     font-family: "IBM Plex Sans KR", sans-serif;
-
     background-color: #ffffff;
-
     height: 150px;
-
     background-color: white;
-    /* display: flex; */
-    /* align-items: center; */
 
     //모바일
     @media screen and (max-width: 1080px) {
-        // background-color: red;
-        // margin-bottom: 2rem;
         width: 100%;
     }
     @media screen and (max-width: 511px) {
-        // background-color: red;
-        // margin-bottom: 2rem;
         width: 100%;
     }
 `
 
 const GifTag = styled.img`
-    // width: 100%;
-    // margin-bottom: 5px;
-    // margin-left: -21px;
     @media screen and (max-width: 1080px) {
         display: none;
     }
@@ -85,23 +72,18 @@ const FlexColumn1 = styled.div`
     }
 `
 const FlexColumn2 = styled.div`
-    // display: flex;
-    // flex-direction: column;
     @media screen and (max-width: 1080px) {
         display: none;
     }
 `
 const FlexColumn3 = styled.div`
-    // display: flex;
-    // flex-direction: column;
+
     @media screen and (max-width: 1080px) {
         display: none;
     }
 `
 const FlexColumn4 = styled.div`
     display: none;
-    // display: flex;
-    // flex-direction: column;
     @media screen and (max-width: 1080px) {
         display: flex;
         flex-direction: column;
@@ -109,7 +91,6 @@ const FlexColumn4 = styled.div`
 `
 const FlexCenter1 = styled.div`
     display: flex;
-    // flex-direction: row;
     justify-content: center;
 `
 
@@ -119,7 +100,6 @@ export default function Footer(props) {
             <FlexRow1>
                 <FlexColumn2>
                     <GifTag src={"../img/footerGif.gif"} alt={""} />
-                    {/* <imgTag src={"../img/footerGif.gif"} alt={""} /> */}
 
                     <ImgTag src={"../img/image3.png"} alt={""} />
                 </FlexColumn2>

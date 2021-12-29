@@ -3,8 +3,8 @@ import styled from "styled-components"
 import React from "react"
 
 const url =
-    process.env.REACT_APP_URL ||
-    "http://ec2-54-180-202-229.ap-northeast-2.compute.amazonaws.com"
+    process.env.REACT_APP_API_URL ||
+    "http://ec2-3-35-9-246.ap-northeast-2.compute.amazonaws.com"
 
 const StyledSinglePost = styled.div`
     display: grid;

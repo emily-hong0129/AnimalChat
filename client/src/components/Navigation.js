@@ -62,25 +62,10 @@ const ButtonsArea = styled.div`
     }
 `
 
-// const HomeButtonArea = styled.div`
-//     display: flex;
-//     margin-right: 2rem;
-
-//     & button {
-//         color: black;
-//         font-weight: bold;
-//         border: none;
-//         margin: auto 0.5rem;
-//         padding: 0.5rem;
-//         background-color: #a06a50;
-//     }
-// `
-
 export default function Navigation() {
     return (
         <Outer className="navigation">
             <ButtonsArea>
-                {/* <HomeButtonArea></HomeButtonArea> */}
                 <div className="boardButtonsSpace">
                     <Link to="/mainpage">
                         <button className="homeButton">전체</button>
