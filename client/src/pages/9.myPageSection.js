@@ -11,7 +11,7 @@ const Outer = styled.div`
     height: 100%;
     padding: 5% 0;
 `
-
+    
 const IdDisplay = styled.div`
     box-sizing: content-box;
     padding: 1rem;
@@ -269,8 +269,8 @@ const DivTag3 = styled.div`
 `
 
 const url =
-    process.env.REACT_APP_URL ||
-    "http://ec2-54-180-202-229.ap-northeast-2.compute.amazonaws.com"
+    process.env.REACT_APP_API_URL ||
+    "http://ec2-3-35-9-246.ap-northeast-2.compute.amazonaws.com"
 
 export default function MyPageSection(props) {
     const infoAnimal = props.userinfo

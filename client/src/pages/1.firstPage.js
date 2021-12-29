@@ -215,11 +215,11 @@ const IconPhoto2 = styled.img`
     width: 50px;
     margin-left: 5px;
 `
-
+    
 axios.defaults.withCredentials = true
 const url =
-    process.env.REACT_APP_URL ||
-    "http://ec2-54-180-202-229.ap-northeast-2.compute.amazonaws.com"
+    process.env.REACT_APP_API_URL ||
+    "http://ec2-3-35-9-246.ap-northeast-2.compute.amazonaws.com"
 
 export const FirstPage = (props) => {
     const [isOpen, setIsOpen] = useState(false)
